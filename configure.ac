@@ -1,6 +1,7 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(viterbi27.c)
-AC_CONFIG_HEADER(config.h)
+AC_INIT
+AC_CONFIG_SRCDIR([viterbi27.c])
+AC_CONFIG_HEADERS([config.h])
 SO_NAME=3
 VERSION=3.0.0
 AC_SUBST(SO_NAME)
@@ -34,7 +35,7 @@ then
 	AC_MSG_ERROR([Need string.h])
 fi
 
-AC_CANONICAL_SYSTEM
+AC_CANONICAL_TARGET
 case $target_cpu in
 x86_64)
 	ARCH_OPTION="-msse2"
@@ -87,4 +88,5 @@ AC_SUBST(ARCH_OPTION)
 dnl Checks for library functions.
 AC_CHECK_FUNCS(getopt_long memset memmove)
 
-AC_OUTPUT(makefile)
+AC_CONFIG_FILES([makefile])
+AC_OUTPUT
